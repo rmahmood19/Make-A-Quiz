@@ -7,9 +7,9 @@
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
 
-
     <link rel="stylesheet" href="{{mix('scss/app.css')}}">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 </head>
 <body>
 
@@ -59,8 +59,7 @@
     </nav>
 
     <!-- Page Content  -->
-    <div id="content" class="p-4 p-md-5 pt-5">
-
+    <div id="content" class="">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -73,7 +72,6 @@
         </div>
     </div>
 </div>
-
 <script src="{{asset('js/app.js')}}"></script>
 
 </body>

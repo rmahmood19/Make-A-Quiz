@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\QuizStoreOrUpdate;
 use App\Models\Quiz;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class QuizController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return View
      */
     public function index()
     {
@@ -33,9 +35,18 @@ class QuizController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(QuizStoreOrUpdate $request)
     {
-        //
+        $data = $request->validated();
+
+        $quiz = Quiz::create([
+            'name' => $data['name'],
+            'creatorId' => auth()->user()->id,
+        ]);
+        dd($quiz->id);
+
+        //return $this->show($quiz->id);
+
     }
 
     /**

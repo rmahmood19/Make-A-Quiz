@@ -1,9 +1,9 @@
 window.Popper = require('popper.js').default;
-//window.$ = window.jQuery = require('jquery');
-global.$ = global.jQuery = require('jquery');
+window.$ = window.jQuery = require('jquery');
 
-import 'shards-ui/dist/js/shards.min';
-require('./bootstrap');
+
+require('bootstrap');
+
 
 
 
@@ -26,5 +26,16 @@ require('./bootstrap');
     });
 
 })(jQuery);
+
+// Accordion
+
+if ($(".accordion__item__header").length > 0) {
+    var active = "active";
+    $(".accordion__item__header").click(function () {
+        $(this).toggleClass(active);
+        $(this).next("div").slideToggle(200);
+    });
+}
+
 
 
