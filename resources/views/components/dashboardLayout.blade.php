@@ -60,6 +60,7 @@
 
     <!-- Page Content  -->
     <div id="content" class="">
+        {{$pageHeading}}
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
