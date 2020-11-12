@@ -21,7 +21,7 @@ Route::middleware('auth')
     ->prefix('/dashboard')->group( function (){
     Route::get('/', function () {
         return view('dashboard.home');
-    });
+    })->name('home');
 
     Route::resource('quiz', QuizController::class);
 });

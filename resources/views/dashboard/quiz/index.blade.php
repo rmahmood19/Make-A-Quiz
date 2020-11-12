@@ -4,7 +4,7 @@
 
     </x-slot>
     <div class="d-flex justify-content-end">
-        <button type="button" class="btn btn-outline-success mb-2"
+        <button type="button" class="btn btn-outline-success mb-2 rounded-pill"
                 data-toggle="modal" data-target="#addQuizModal">
             Add new
         </button>
@@ -53,35 +53,23 @@
     </div>
     <div>
         <div class="accordion">
+            @foreach($quizzes as $quiz)
             <div class="accordion__item">
                 <div class="accordion__item__header">
-                    Título da FAQ
+                    {{$quiz->name}}
                 </div>
 
                 <div class="accordion__item__content">
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit esse voluptatem reprehenderit nisi, eos nostrum eius commodi vel illo. Omnis dicta commodi laudantium qui debitis rerum aliquam voluptatibus quisquam fuga!</p>
+                    <div class="d-flex justify-content-end">
+                        <a class="btn btn-outline-success rounded-pill mt-2"
+                        href="{{route('quiz.show', $quiz->id)}}">See in Detail</a>
+                    </div>
                 </div>
+
             </div>
+            @endforeach
 
-            <div class="accordion__item">
-                <div class="accordion__item__header">
-                    Título da FAQ
-                </div>
-
-                <div class="accordion__item__content">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit esse voluptatem reprehenderit nisi, eos nostrum eius commodi vel illo. Omnis dicta commodi laudantium qui debitis rerum aliquam voluptatibus quisquam fuga!</p>
-                </div>
-            </div>
-
-            <div class="accordion__item">
-                <div class="accordion__item__header">
-                    Título da FAQ
-                </div>
-
-                <div class="accordion__item__content">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit esse voluptatem reprehenderit nisi, eos nostrum eius commodi vel illo. Omnis dicta commodi laudantium qui debitis rerum aliquam voluptatibus quisquam fuga!</p>
-                </div>
-            </div>
         </div> <!-- id accordion end -->
     </div>
     @if (count($errors) > 0)

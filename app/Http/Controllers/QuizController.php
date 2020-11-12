@@ -12,11 +12,15 @@ class QuizController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return View
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function index()
     {
-        return view('dashboard.quiz.index');
+        $quizzes = Quiz::all();
+        return view('dashboard.quiz.index')
+            ->with([
+                'quizzes' => $quizzes
+            ]);
     }
 
     /**
@@ -33,7 +37,7 @@ class QuizController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function store(QuizStoreOrUpdate $request)
     {
@@ -43,9 +47,9 @@ class QuizController extends Controller
             'name' => $data['name'],
             'creatorId' => auth()->user()->id,
         ]);
-        dd($quiz->id);
 
-        //return $this->show($quiz->id);
+
+        return redirect()->route('quiz.show', $quiz);
 
     }
 
@@ -53,11 +57,13 @@ class QuizController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\Quiz  $quiz
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function show(Quiz $quiz)
     {
-        //
+        return view('dashboard.quiz.show')->with([
+            'quiz' => $quiz
+        ]);
     }
 
     /**

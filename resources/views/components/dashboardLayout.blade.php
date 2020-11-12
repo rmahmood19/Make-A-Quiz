@@ -27,7 +27,7 @@
         </div>
         <ul class="list-unstyled components mb-5">
             <li class="active">
-                <a href="#"><span class="fa fa-home mr-3"></span> Home</a>
+                <a href="{{route('home')}}"><span class="fa fa-home mr-3"></span> Home</a>
             </li>
             <li>
                 <a href="{{route('quiz.index')}}"><span class="fa fa-book-open mr-3"></span> Your Quiz</a>
@@ -60,7 +60,7 @@
 
     <!-- Page Content  -->
     <div id="content" class="">
-        {{$pageHeading}}
+        {{ $pageHeading ?? '' }}
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
