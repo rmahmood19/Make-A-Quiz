@@ -460,3 +460,8 @@ a[data-toggle="collapse"] {
 
     }
 }
+input[type="checkbox"] {
+    box-sizing: border-box;
+    padding: 0;
+    width: 50%;
+}

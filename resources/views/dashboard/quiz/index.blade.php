@@ -9,49 +9,37 @@
             Add new
         </button>
     </div>
-    <div class="modal fade " id="addQuizModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Add a new Quiz</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form method="POST" action="{{route('quiz.store')}}">
-                        @csrf
-                        <div class="form-group">
-                            <input type="text" class="form-control"
-                                   name="name"
-                                   id="exampleFormControlInput1" placeholder="Enter Quiz Name"
-                            >
-                            @if($errors->has('name'))
-                                @foreach ($errors->all() as $error)
-                                    <div>{{ $error }}</div>
-                                @endforeach
-                            @endif
-                        </div>
-                        <div class="form-group">
-                            <div class="d-flex justify-content-center">
-
-                                    <button type="submit" class="btn btn-outline-success rounded-pill">
-                                        Save Quiz
-                                    </button>
-
-                            </div>
-
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-
-                </div>
+<x-modal
+    :modalHeading="'Add new quiz'"
+    :id="'addQuizModal'"
+    >
+    <div class="modal-body">
+        <form method="POST" action="{{route('quiz.store')}}">
+            @csrf
+            <div class="form-group">
+                <input type="text" class="form-control"
+                       name="name"
+                       id="exampleFormControlInput1" placeholder="Enter Quiz Name"
+                >
+                @if($errors->has('name'))
+                    @foreach ($errors->all() as $error)
+                        <div>{{ $error }}</div>
+                    @endforeach
+                @endif
             </div>
-        </div>
+            <div class="form-group">
+                <div class="d-flex justify-content-center">
+
+                    <button type="submit" class="btn btn-outline-success rounded-pill">
+                        Save Quiz
+                    </button>
+
+                </div>
+
+            </div>
+        </form>
     </div>
-    <div>
+</x-modal>
         <div class="accordion">
             @foreach($quizzes as $quiz)
             <div class="accordion__item">

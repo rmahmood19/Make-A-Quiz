@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\QuizController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,6 +25,9 @@ Route::middleware('auth')
     })->name('home');
 
     Route::resource('quiz', QuizController::class);
+
+    Route::post('quiz/{quiz}/add-question', [QuestionController::class,'store'])
+    ->name('question.store');
 });
 
 
