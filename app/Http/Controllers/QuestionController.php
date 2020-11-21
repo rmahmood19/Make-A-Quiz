@@ -74,7 +74,7 @@ class QuestionController extends Controller
      */
     public function edit(Question $question)
     {
-        //
+        return view('dashboard.quiz.question.edit');
     }
 
     /**

@@ -275,6 +275,7 @@ h1, h2, h3, h4, h5,
     .custom-menu{
         display: inline-block;
         position: absolute;
+        border-radius: 15px;
         top: 20px;
         right: 0;
         margin-right: -35px;
@@ -464,4 +465,8 @@ input[type="checkbox"] {
     box-sizing: border-box;
     padding: 0;
     width: 50%;
+}
+
+.correct-answer{
+    color: #1e7e34;
 }

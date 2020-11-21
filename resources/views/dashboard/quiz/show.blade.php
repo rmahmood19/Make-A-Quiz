@@ -8,10 +8,11 @@
     <div class="d-flex justify-content-end">
         <button class="btn btn-outline-success rounded-pill mt-2"
                 type="button"
-                data-toggle="modal" data-target="#addQuestionModal">Add question to this quiz</button>
+                data-toggle="modal" data-target="#addQuestionModal">Add question to this quiz
+        </button>
     </div>
     <x-modal
-        :modalHeading="'Add new quiz'"
+        :modalHeading="'Add new question'"
         :id="'addQuestionModal'"
     >
         <div class="modal-body">
@@ -79,7 +80,7 @@
                     <div class="d-flex justify-content-center">
 
                         <button type="submit" class="btn btn-outline-success rounded-pill">
-                            Save Quiz
+                            Save Question
                         </button>
 
                     </div>
@@ -88,4 +89,34 @@
             </form>
         </div>
     </x-modal>
+   @foreach($quiz->questions as $question)
+        <div class="card mt-2 mb-3">
+            <div class="card-header d-flex justify-content-between">
+                <H4>{{$question->text}}</H4>
+                <button class="btn btn-outline-success rounded-pill"
+                        type="button">
+                    <a href="{{route('question.edit',[$quiz->id,$question->id])}}"><i class="fa fa-edit" aria-hidden="true"></i></a>
+
+                </button>
+            </div>
+            <div class="card-body">
+                <h5>Possible Answers</h5>
+                <div class="d-flex flex-column ">
+                    @foreach($question->answers as $answer)
+                    <div class="ml-2
+                    @if($answer->isCorrect)
+                        correct-answer
+                        @endif
+                        ">
+                        <i class="fa fa-bullseye" aria-hidden="true"></i>
+                        {{$answer->text}}
+                    </div>
+                    @endforeach
+
+                </div>
+            </div>
+
+
+        </div>
+   @endforeach
 </x-dashboardLayout>

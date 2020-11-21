@@ -19,13 +19,7 @@
             <button type="button" id="sidebarCollapse" class="btn btn-primary">
             </button>
         </div>
-        <div class="img bg-wrap text-center py-4" style="background-image: url(images/bg_1.jpg);">
-            <div class="user-logo">
-                <div class="img" style="background-image: url(images/logo.jpg);"></div>
-                <h3>Catriona Henderson</h3>
-            </div>
-        </div>
-        <ul class="list-unstyled components mb-5">
+        <ul class="list-unstyled components mb-5 mt-5">
             <li class="active">
                 <a href="{{route('home')}}"><span class="fa fa-home mr-3"></span> Home</a>
             </li>

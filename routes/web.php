@@ -28,6 +28,8 @@ Route::middleware('auth')
 
     Route::post('quiz/{quiz}/add-question', [QuestionController::class,'store'])
     ->name('question.store');
+    Route::get('quiz/{quiz}/edit-question/{question}', [QuestionController::class,'edit'])
+            ->name('question.edit');
 });
 
 
