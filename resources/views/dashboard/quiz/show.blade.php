@@ -93,11 +93,20 @@
         <div class="card mt-2 mb-3">
             <div class="card-header d-flex justify-content-between">
                 <H4>{{$question->text}}</H4>
-                <button class="btn btn-outline-success rounded-pill"
-                        type="button">
-                    <a href="{{route('question.edit',[$quiz->id,$question->id])}}"><i class="fa fa-edit" aria-hidden="true"></i></a>
+               <div>
+                   <a class="text-success"
+                      href="{{route('question.edit',[$quiz->id,$question->id])}}"
+                      type="button">
+                       <i class="fas fa-edit" aria-hidden="true"></i>
 
-                </button>
+                   </a>
+                   <a class="text-danger"
+                      href="{{route('question.edit',[$quiz->id,$question->id])}}"
+                      type="button">
+                       <i class="fas fa-trash p-1" aria-hidden="true"></i>
+
+                   </a>
+               </div>
             </div>
             <div class="card-body">
                 <h5>Possible Answers</h5>

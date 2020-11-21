@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\QuestionRequest;
+use App\Models\Answer;
 use App\Models\Question;
 use App\Models\Quiz;
 use Illuminate\Http\Request;
@@ -70,11 +71,14 @@ class QuestionController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Question  $question
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function edit(Question $question)
+    public function edit(Quiz $quiz, Question $question)
     {
-        return view('dashboard.quiz.question.edit');
+        return view('dashboard.quiz.question.edit')
+            ->with([
+                'question' => $question
+            ]);
     }
 
     /**
@@ -86,7 +90,22 @@ class QuestionController extends Controller
      */
     public function update(Request $request, Question $question)
     {
-        //
+        $request->validate([
+            'text' => 'required | min:3 | max:100',
+            'answers' => 'required'
+        ]);
+        $question->text = $request->input('text');
+        $question->save();
+        $answers = $request->input('answers');
+
+        foreach ($answers as $key=>$value){
+            $answer = Answer::find($key);
+            $answer->text = $value[0];
+            $answer->isCorrect = isset($value[1]) ? 1 : 0;
+            $answer->save();
+        }
+
+        return redirect()->route('quiz.show',$question->quiz->id);
     }
 
     /**

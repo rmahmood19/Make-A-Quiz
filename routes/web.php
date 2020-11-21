@@ -30,6 +30,8 @@ Route::middleware('auth')
     ->name('question.store');
     Route::get('quiz/{quiz}/edit-question/{question}', [QuestionController::class,'edit'])
             ->name('question.edit');
+    Route::put('question/{question}',[QuestionController::class, 'update'])
+        ->name('question.update');
 });
 
 

@@ -1,22 +1,19 @@
 <x-dashboardLayout>
     <div class="card">
         <div class="card-header">
-            <h3>{{$question->text}}</h3>
+            <h3>Edit Question</h3>
         </div>
     </div>
-    @foreach($question->answers)
-        <form method="POST" action="{{route('question.store', $quiz->id)}}">
+
+        <form method="POST" class="mt-3" action="{{route('question.update', $question->id)}}">
             @csrf
+            @method('put')
             <div class="form-group">
                 <input type="text" class="form-control"
                        name="text"
-                       id="exampleFormControlInput1" placeholder="Enter Question text.."
+                       id="exampleFormControlInput1"
+                       value="{{$question->text}}"
                 >
-                @if($errors->has('text'))
-                    @foreach ($errors->all() as $error)
-                        <div>{{ $error }}</div>
-                    @endforeach
-                @endif
             </div>
             <table class="table table-borderless">
                 <thead>
@@ -27,42 +24,20 @@
                 </tr>
                 </thead>
                 <tbody>
+                @foreach($question->answers as $answer)
                 <tr>
-                    <th scope="row">1</th>
+                    <th scope="row">{{$loop->iteration}}</th>
                     <td colspan="3">
-                        <input class="form-control" name="answer[1][]" placeholder="Option 1" type="text">
+                        <input class="form-control" name="answers[{{$answer->id}}][]" placeholder="Option 1" type="text"
+                        value="{{$answer->text}}">
                     </td>
                     <td>
-                        <input class="form-control" name=answer[1][]  type="checkbox">
+                        <input class="form-control" name="answers[{{$answer->id}}][]" type="checkbox"
+                               @if($answer->isCorrect) checked @endif
+                        >
                     </td>
                 </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td colspan="3">
-                        <input class="form-control" name="answer[2][]" placeholder="Option 2" type="text">
-                    </td>
-                    <td>
-                        <input class="form-control" name=answer[2][]  type="checkbox">
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td colspan="3">
-                        <input class="form-control" name="answer[3][]" placeholder="Option 3" type="text">
-                    </td>
-                    <td>
-                        <input class="form-control" name=answer[3][]  type="checkbox">
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td colspan="3">
-                        <input class="form-control" name="answer[4][]" placeholder="Option 4" type="text">
-                    </td>
-                    <td>
-                        <input class="form-control" name=answer[4][]  type="checkbox">
-                    </td>
-                </tr>
+                @endforeach
                 </tbody>
             </table>
             <div class="form-group">
@@ -76,6 +51,6 @@
 
             </div>
         </form>
-    @endforeach
+
 </x-dashboardLayout>
 
