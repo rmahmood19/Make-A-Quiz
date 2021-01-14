@@ -7,7 +7,7 @@
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
 
-    <link rel="stylesheet" href="{{mix('scss/app.css')}}">
+    <link rel="stylesheet" href="{{mix('css/app.css')}}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 </head>

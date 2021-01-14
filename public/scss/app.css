@@ -17364,6 +17364,7 @@ h5,
 #sidebar .custom-menu {
   display: inline-block;
   position: absolute;
+  border-radius: 15px;
   top: 20px;
   right: 0;
   margin-right: -35px;
@@ -17550,5 +17551,15 @@ a[data-toggle=collapse] {
   overflow-y: hidden;
   padding: 0;
   display: none;
+}
+
+input[type=checkbox] {
+  box-sizing: border-box;
+  padding: 0;
+  width: 50%;
+}
+
+.correct-answer {
+  color: #1e7e34;
 }
 

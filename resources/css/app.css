@@ -1,9 +1,13 @@
-@import "~bootstrap/scss/bootstrap";
+
 
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 @import '~@fortawesome/fontawesome-free/scss/brands';
 @import '~@fortawesome/fontawesome-free/scss/regular';
 @import '~@fortawesome/fontawesome-free/scss/solid';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 
 
@@ -123,7 +127,7 @@ body{
     line-height: 1.8;
     font-weight: normal;
     background: #fff;
-    color: lighten($black,50%);
+
 }
 .page-heading{
     background: linear-gradient(90deg, rgba(63,94,251,1) 0%, rgba(255,106,106,1) 100%);
