@@ -1,42 +1,7 @@
 <x-dashboardLayout>
    <h2 class="text-green-800 w-full text-center text-2xl">Your Quiz</h2>
-    <div class="d-flex justify-content-end">
-        <button type="button" class="btn btn-outline-success mb-2 rounded-pill"
-                data-toggle="modal" data-target="#addQuizModal">
-            Add new
-        </button>
-    </div>
-<x-modal
-    :modalHeading="'Add new quiz'"
-    :id="'addQuizModal'"
-    >
-    <div class="modal-body">
-        <form method="POST" action="{{route('quiz.store')}}">
-            @csrf
-            <div class="form-group">
-                <input type="text" class="form-control"
-                       name="name"
-                       id="exampleFormControlInput1" placeholder="Enter Quiz Name"
-                >
-                @if($errors->has('name'))
-                    @foreach ($errors->all() as $error)
-                        <div>{{ $error }}</div>
-                    @endforeach
-                @endif
-            </div>
-            <div class="form-group">
-                <div class="d-flex justify-content-center">
 
-                    <button type="submit" class="btn btn-outline-success rounded-pill">
-                        Save Quiz
-                    </button>
-
-                </div>
-
-            </div>
-        </form>
-    </div>
-</x-modal>
+<add-quiz></add-quiz>
         <div class="accordion">
             @foreach($quizzes as $quiz)
             <div class="accordion__item">

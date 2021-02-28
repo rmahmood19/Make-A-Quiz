@@ -41,15 +41,15 @@ class QuizController extends Controller
      */
     public function store(QuizStoreOrUpdate $request)
     {
-        $data = $request->validated();
-
+      $data = $request->validated();
         $quiz = Quiz::create([
             'name' => $data['name'],
             'creatorId' => auth()->user()->id,
         ]);
+      return response()->json(['message'],200);
 
-
-        return redirect()->route('quiz.show', $quiz);
+//
+//        return redirect()->route('quiz.show', $quiz);
 
     }
 
