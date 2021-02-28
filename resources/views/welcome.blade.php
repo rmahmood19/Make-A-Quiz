@@ -7,11 +7,16 @@
                 </svg>
             </div>
         </div>
-        <h1 class="text-9xl text-center mx-auto font-bold text-transparent bg-clip-text
+        <h1 class="text-6xl md:text-9xl text-center mx-auto font-bold text-transparent bg-clip-text
          bg-gradient-to-r from-green-500 to-blue-800">Make a Quiz</h1>
         <p class="mx-auto text-center text-2xl font-thin"> Easily create a quiz and share it with everyone</p>
         <div class="text-center">
-            <button class="text-center text-2xl bg-green-500 text-white px-12 py-3 mt-1 rounded-full">Start Making Quiz</button>
+            <a href="{{route('register')}}">
+                <button class="text-center text-2xl bg-green-500 text-white px-12 py-3 mt-1 rounded-full">Start Making Quiz</button>
+            </a>
+            <div class="text-blue-600 text-xl font-thin">Already a member?
+                <a href="{{route('login')}}">Login</a>
+                </div>
         </div>
 
     </div>

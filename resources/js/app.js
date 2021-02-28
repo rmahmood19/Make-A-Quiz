@@ -1,41 +1,21 @@
-window.Popper = require('popper.js').default;
-window.$ = window.jQuery = require('jquery');
 
+import Vue from 'vue'
 
+const files = require.context('./', true, /\.vue$/i)
+files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
+const app = new Vue({
+    el: '#app',
+});
 
+//Responsive menu
+const menuIcon = document.querySelector('#menuIcon');
+const menu = document.querySelector('#menu');
 
-
-
-(function($) {
-
-    "use strict";
-
-    var fullHeight = function() {
-
-        $('.js-fullheight').css('height', $(window).height());
-        $(window).resize(function(){
-            $('.js-fullheight').css('height', $(window).height());
-        });
-
-    };
-    fullHeight();
-
-    $('#sidebarCollapse').on('click', function () {
-        $('#sidebar').toggleClass('active');
-    });
-
-})(jQuery);
-
-// Accordion
-
-if ($(".accordion__item__header").length > 0) {
-    var active = "active";
-    $(".accordion__item__header").click(function () {
-        $(this).toggleClass(active);
-        $(this).next("div").slideToggle(200);
-    });
-}
-
-
-
+menuIcon.addEventListener('click', () => {
+    if (menu.classList.contains('hidden')) {
+        menu.classList.remove('hidden');
+    } else {
+        menu.classList.add('hidden');
+    }
+})

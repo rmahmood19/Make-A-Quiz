@@ -19,7 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::middleware('auth')
-    ->prefix('/dashboard')->group( function (){
+  ->prefix('/dashboard')->group( function (){
     Route::get('/', function () {
         return view('dashboard.home');
     })->name('home');

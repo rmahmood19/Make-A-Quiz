@@ -1,8 +1,5 @@
 <x-dashboardLayout>
-    <x-slot name="pageHeading">
-        <h1 class="page-heading">Quiz Created by You</h1>
-
-    </x-slot>
+   <h2 class="text-green-800 w-full text-center text-2xl">Your Quiz</h2>
     <div class="d-flex justify-content-end">
         <button type="button" class="btn btn-outline-success mb-2 rounded-pill"
                 data-toggle="modal" data-target="#addQuizModal">

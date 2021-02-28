@@ -10,7 +10,7 @@
 </head>
 <body>
 <div class="main">
-    <div class=" bg-indigo-100-700 min-h-screen flex justify-center items-center">
+    <div class=" min-h-screen flex justify-center items-center">
         <div>
            {{$slot}}
         </div>
